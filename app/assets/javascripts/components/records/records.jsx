@@ -63,7 +63,7 @@ var Records = React.createClass({
 		}
 		return (
 			<div className="records">
-				<h2 className="title">EXPENSES</h2>
+				<h2 className="title">LEDGER</h2>
 				<table className='table table-bordered'>
 					<thead>
 						<tr>
