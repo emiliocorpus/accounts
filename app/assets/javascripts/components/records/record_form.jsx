@@ -54,21 +54,25 @@ var RecordForm = React.createClass({
 	render:function() {
 		var error = this.state.error
 		return (
-			<form className="form-inline center" onSubmit={this.handleSubmit}>
-				<div className="form-group">
-					<input type="date" className="form-control" placeholder="Date" name="date" value={this.state.date} onChange={this.handleChange}/>
+			<div className="container-fluid record-form-container">
+				<div className='record-form'>
+					<div className="error-message form-group">
+							{error}
+					</div>
+					<form className="form-inline pagination-centered" onSubmit={this.handleSubmit}>
+						<div className="form-group">
+							<input type="date" className="form-control" placeholder="Date" name="date" value={this.state.date} onChange={this.handleChange}/>
+						</div>
+						<div className="form-group">
+							<input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange}/>
+						</div>
+						<div className="form-group">
+							<input type="number" step="0.01" className="form-control" placeholder="Amount" name="amount" value={this.state.amount} onChange={this.handleChange}/>
+						</div>
+						<button type='submit' className='btn btn-primary'>Create Record</button>
+					</form>
 				</div>
-				<div className="form-group">
-					<input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange}/>
-				</div>
-				<div className="form-group">
-					<input type="number" step="0.01" className="form-control" placeholder="Amount" name="amount" value={this.state.amount} onChange={this.handleChange}/>
-				</div>
-				<button type='submit' className='btn btn-primary'>Create Record</button>
-				<div className="error-message form-group">
-					{error}
-				</div>
-			</form>
+			</div>
 		)
 	}
 })

@@ -56,7 +56,7 @@ var Record = React.createClass({
 				<td>{this.props.record.title}</td>
 				<td>{amountFormat(this.props.record.amount)}</td>
 				<td>
-					<a href="#" className="btn btn-default" onClick={this.handleToggle}>Edit</a>
+					<a href="#" className="btn btn-default btn-space" onClick={this.handleToggle}>Edit</a>
 					<a href="#" className="btn btn-danger" onClick={this.handleDelete}>Delete</a>
 				</td>
 			</tr>
@@ -75,7 +75,7 @@ var Record = React.createClass({
 					<input className='form-control' type='number' step='0.01' defaultValue={this.props.record.amount} ref='amount'/>
 				</td>
 				<td>
-					<a href="#" className="btn btn-default" onClick={this.handleEdit}>Update</a>
+					<a href="#" className="btn btn-default btn-space" onClick={this.handleEdit}>Update</a>
 					<a href="#" className="btn btn-danger" onClick={this.handleToggle}>Cancel</a>
 				</td>
 			</tr>

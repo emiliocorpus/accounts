@@ -1,7 +1,53 @@
 // Place all the styles related to the Records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.error-message{
+body {
+	background-color:#D4E0FF;
+}
+div.error-message{
 	color:red;
 	font-size:14px;
+}
+div.debugger{
+	border:1px solid red;
+}
+h2.title{
+	color:#BA5252;
+}
+
+div.records, div.body-container{
+	margin-top:5%;
+	padding:2%;
+}
+div.record-form-container {
+	margin-bottom:2%;
+}
+div.record-form {
+	text-align:center;
+}
+.btn-space {
+    margin-right: 5px;
+}
+table{
+	background-color:white;
+}
+nav.navbar-fixed-top, nav.navbar-default, nav.nav-down {
+	background-color:#2C70BA;
+}
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+    margin-right:14px;
+}
+span.site-name{
+	color:white;
+}
+span.on-react{
+	color:#88BA70;
+}
+
+// .navbar-header .navbar-brand:hover{
+// 	color:#BABABA;
+// }
+.text-center{
+	text-align:center;
 }
