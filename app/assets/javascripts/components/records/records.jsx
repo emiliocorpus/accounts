@@ -10,18 +10,21 @@ var Records = React.createClass({
 		}
 	},
 	addRecord:function(record) {
-		var currentRecords = this.state.records
-		currentRecords.push(record)
+		var currentRecords = React.addons.update(this.state.records, {$push: [record]})
 		this.setState({
 			records: currentRecords
 		})
 	},
 	deleteRecord:function(record){
-		debugger
-		var records = this.state.records.slice()
-		var index = records.indexOf(record)
-		records.splice(index, 1)
-		debugger
+		var index = this.state.records.indexOf(record)
+		var records = React.addons.update(this.state.records, {$splice: [[index,1]]})
+		this.replaceState({
+			records: records
+		})
+	},
+	updateRecord:function(record, data){
+		var index = this.state.records.indexOf(record)
+		var records = React.addons.update(this.state.records, {$splice:[[index,1,data]]})
 		this.replaceState({
 			records: records
 		})
@@ -55,7 +58,7 @@ var Records = React.createClass({
 		var records = this.state.records
 		if (records.length>0) {
 			for (var i in records) {
-				display.push(<Record record={records[i]} key={records[i].id} handleDeleteRecord={this.deleteRecord}/>)
+				display.push(<Record record={records[i]} key={records[i].id} handleDeleteRecord={this.deleteRecord} handleEditRecord={this.updateRecord}/>)
 			}
 		}
 		return (
@@ -64,10 +67,10 @@ var Records = React.createClass({
 				<table className='table table-bordered'>
 					<thead>
 						<tr>
-							<th>'Date'</th>
-							<th>'Title'</th>
-							<th>'Amount'</th>
-							<th>'Actions'</th>
+							<th>Date</th>
+							<th>Title</th>
+							<th>Amount</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>

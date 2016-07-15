@@ -26,7 +26,7 @@ var RecordForm = React.createClass({
 		e.preventDefault()
 		if (this.valid()) {
 			$.ajax({
-				url: 'http://localhost:3000/records',
+				url: '/records',
 				type: 'POST',
 				dataType: 'JSON',
 				data: {record: this.state},
