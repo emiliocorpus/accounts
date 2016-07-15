@@ -4,11 +4,11 @@ var Records = React.createClass({
 			records: this.props.data
 		}
 	}, 
-	// getInitialProps:function(){
-	// 	return {
-	// 		records: []
-	// 	}
-	// },
+	getInitialProps:function(){
+		return {
+			records: []
+		}
+	},
 	addRecord:function(record) {
 		debugger
 		var currentRecords = this.state.records
@@ -20,8 +20,10 @@ var Records = React.createClass({
 	render:function() {
 		var display=[]
 		var records = this.state.records
-		for (var i in records) {
-			display.push(<Record record={records[i]} key={records[i].id}/>)
+		if (records.length>0) {
+			for (var i in records) {
+				display.push(<Record record={records[i]} key={records[i].id}/>)
+			}
 		}
 		return (
 			<div className="records">
