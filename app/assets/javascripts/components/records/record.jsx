@@ -4,7 +4,7 @@ var Record = React.createClass({
 			<tr>
 				<td>{this.props.record.date}</td>
 				<td>{this.props.record.title}</td>
-				<td>{"$" + this.props.record.amount.toString()}</td>
+				<td>{amountFormat(this.props.record.amount)}</td>
 			</tr>
 		)
 	}

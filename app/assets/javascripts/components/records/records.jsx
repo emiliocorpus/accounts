@@ -17,6 +17,30 @@ var Records = React.createClass({
 			records: currentRecords
 		})
 	},
+	credits:function() {
+		var credits = this.state.records.filter(function(val){
+			if (val.amount >=0) {
+				return val
+			}
+		})
+		return credits.reduce(function(prev, curr) {
+			return prev + parseFloat(curr.amount)
+		},0)
+
+	},
+	debits:function(){
+		var debits = this.state.records.filter(function(val){
+			if (val.amount < 0) {
+				return val
+			}
+		})
+		return debits.reduce(function(prev,curr) {
+			return prev + parseFloat(curr.amount)
+		},0)
+	},
+	balance:function(){
+		return ( this.debits() + this.credits())
+	},
 	render:function() {
 		var display=[]
 		var records = this.state.records
@@ -40,7 +64,11 @@ var Records = React.createClass({
 						{display}
 					</tbody>
 				</table>
+				<hr/>
 				<RecordForm handleNewRecord={this.addRecord}/>
+				<AmountBox type='success' amount={this.credits()} text='Credit'/>
+				<AmountBox type='danger' amount={this.debits()} text='Debit'/>
+				<AmountBox type='info' amount={this.balance()} text='Balance'/>
 			</div>
 		)
 	}

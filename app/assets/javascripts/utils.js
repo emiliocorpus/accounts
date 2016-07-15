@@ -1,3 +1,3 @@
 var amountFormat = function(amount) {
-	'$' + amount.toString()
+	return ('$' + amount.toString())
 }

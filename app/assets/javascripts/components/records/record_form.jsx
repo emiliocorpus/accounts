@@ -54,7 +54,7 @@ var RecordForm = React.createClass({
 	render:function() {
 		var error = this.state.error
 		return (
-			<form className="form-inline" onSubmit={this.handleSubmit}>
+			<form className="form-inline center" onSubmit={this.handleSubmit}>
 				<div className="form-group">
 					<input type="date" className="form-control" placeholder="Date" name="date" value={this.state.date} onChange={this.handleChange}/>
 				</div>
