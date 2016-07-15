@@ -10,11 +10,20 @@ var Records = React.createClass({
 		}
 	},
 	addRecord:function(record) {
-		debugger
 		var currentRecords = this.state.records
 		currentRecords.push(record)
 		this.setState({
 			records: currentRecords
+		})
+	},
+	deleteRecord:function(record){
+		debugger
+		var records = this.state.records.slice()
+		var index = records.indexOf(record)
+		records.splice(index, 1)
+		debugger
+		this.replaceState({
+			records: records
 		})
 	},
 	credits:function() {
@@ -46,7 +55,7 @@ var Records = React.createClass({
 		var records = this.state.records
 		if (records.length>0) {
 			for (var i in records) {
-				display.push(<Record record={records[i]} key={records[i].id}/>)
+				display.push(<Record record={records[i]} key={records[i].id} handleDeleteRecord={this.deleteRecord}/>)
 			}
 		}
 		return (
@@ -58,6 +67,7 @@ var Records = React.createClass({
 							<th>'Date'</th>
 							<th>'Title'</th>
 							<th>'Amount'</th>
+							<th>'Actions'</th>
 						</tr>
 					</thead>
 					<tbody>
