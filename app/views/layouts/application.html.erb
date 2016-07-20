@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Accounts</title>
+  <title>Accounts Manager on React.js</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
-
-<%= yield %>
-
+	<%= render 'partials/navbar' %>
+			<%= yield %>
+	<%= render 'partials/footer' %>
 </body>
 </html>

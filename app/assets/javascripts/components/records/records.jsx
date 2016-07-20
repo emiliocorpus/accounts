@@ -64,24 +64,26 @@ var Records = React.createClass({
 		return (
 			<div className="records">
 				<h2 className="title">LEDGER</h2>
-				<table className='table table-bordered'>
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Title</th>
-							<th>Amount</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{display}
-					</tbody>
-				</table>
-				<hr/>
-				<RecordForm handleNewRecord={this.addRecord}/>
-				<AmountBox type='success' amount={this.credits()} text='Credit'/>
-				<AmountBox type='danger' amount={this.debits()} text='Debit'/>
-				<AmountBox type='info' amount={this.balance()} text='Balance'/>
+				<FlipMove enterAnimation="elevator" leaveAnimation="elevator" >
+					<table className='table table-bordered'>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Title</th>
+								<th>Amount</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+							<tbody>
+								{display}
+							</tbody>
+					</table>
+					<hr/>
+					<RecordForm handleNewRecord={this.addRecord}/>
+					<AmountBox type='success' amount={this.credits()} text='Credit'/>
+					<AmountBox type='danger' amount={this.debits()} text='Debit'/>
+					<AmountBox type='info' amount={this.balance()} text='Balance'/>
+				</FlipMove>
 			</div>
 		)
 	}
