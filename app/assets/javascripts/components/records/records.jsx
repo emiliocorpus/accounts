@@ -17,7 +17,6 @@ var Records = React.createClass({
 	},
 	deleteRecord:function(record){
 		var index = this.state.records.indexOf(record)
-		var records = React.addons.update(this.state.records, {$splice: [[index,1]]})
 		this.replaceState({
 			records: records
 		})
